@@ -2,8 +2,8 @@ import { hasAuthorizations as useUserHasAuthorization } from '@/react/hooks/useU
 import { getCurrentUser } from '../users/queries/useLoadCurrentUser';
 import * as userHelpers from '../users/user.helpers';
 import { clear as clearSessionStorage } from './session-storage';
-const DEFAULT_USER = 'admin';
-const DEFAULT_PASSWORD = 'K7yJPP5qNK4hf1QsRnfV';
+const DEFAULT_USER = process.env.PORTAINER_DEFAULT_USER;
+const DEFAULT_PASSWORD = process.env.PORTAINER_DEFAULT_PASSWORD;
 
 angular.module('portainer.app').factory('Authentication', [
   '$async',

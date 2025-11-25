@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  portainer:
+    image: portainerci/portainer-ce:local
+    restart: always
+    environment:
+      - DOCKER_EXTENSION=1
+    security_opt:
+      - no-new-privileges:false
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./data:/data
+    ports:
+      - 49000:9000
+      - 48000:8000
+      - 49443:9443
+volumes:
+  portainer_data:

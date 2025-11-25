@@ -3,7 +3,8 @@ const commonConfig = require('./webpack.common.js');
 
 module.exports = merge(commonConfig, {
   mode: 'development',
-  devtool: 'eval-source-map',
+  // 'eval-*' devtools violate our strict CSP (no 'unsafe-eval'), so use standard source maps.
+  devtool: 'source-map',
   module: {
     rules: [
       {
